@@ -50,6 +50,8 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+APPEND_SLASH = True
+
 ROOT_URLCONF = 'personal.urls'
 
 WSGI_APPLICATION = 'personal.wsgi.application'
