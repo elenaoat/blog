@@ -9,3 +9,13 @@ def home(request):
 
     return render(request, 'home.html', ctx)
 
+
+def about(request):
+
+    return render(request, 'about.html')
+
+
+def view_post(request, post_slug):
+    post = get_object_or_404(models.Post, slug=post_slug)
+    ctx = {'post': post}
+    return render(request, 'post.html', ctx)
