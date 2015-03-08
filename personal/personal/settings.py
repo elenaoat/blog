@@ -26,7 +26,7 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+SITE_ID = 1
 # Application definition
 
 INSTALLED_APPS = (
@@ -39,6 +39,8 @@ INSTALLED_APPS = (
     'south',
     'django_extensions',
     'blogengine',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
 )
 
 MIDDLEWARE_CLASSES = (
