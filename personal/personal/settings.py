@@ -42,6 +42,8 @@ INSTALLED_APPS = (
     'south',
     'django_extensions',
     'blogengine',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
 )
 
 MIDDLEWARE_CLASSES = (
