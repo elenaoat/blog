@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{{ post.title }}</h1>
-    <p>{{ post.text|linebreaks }}</p>
+    <h2>{{ post.title }}</h2>
+    <article class="teaser post">{{ post.text|linebreaks }}</article>
 {% endblock content %}

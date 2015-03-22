@@ -2,7 +2,9 @@
 
 {% block content %}
     {% for post in posts %}
-        <a href="{% url 'view_post' post.slug %}" style="text-decoration: none; color: #BFBECC"><h2>{{ post.title }}</h2></a>
-        <p>{{ post.teaser }}</p>
+    	<article class="teaser">
+	        <a href="{% url 'view_post' post.slug %}" class="link"><h2>{{ post.title }}</h2></a>
+	        <p>{{ post.teaser }}</p>
+        </article>
     {% endfor %}
 {% endblock content %}

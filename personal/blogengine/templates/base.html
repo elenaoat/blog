@@ -8,6 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Anonymous+Pro' rel='stylesheet' type='text/css'>
 
     <title></title>
 
@@ -29,41 +30,27 @@
   </head>
 
   <body>
-
-    <div class="site-wrapper">
-
-      <div class="site-wrapper-inner">
-
-        <div class="cover-container">
-
-        {% block navbar %}
-          <div class="masthead clearfix">
-            <div class="inner">
-              <h3 class="masthead-brand">excelerate</h3>
-              <nav>
-                <ul class="nav masthead-nav">
-                  <li class="active"><a href="{% url 'home' %}">Home</a></li>
-                  <!-- <li><a href="#">Features</a></li> -->
-                  <li><a href="{% url 'about' %}">About</a></li>
-                </ul>
-              </nav>
-            </div>
+        <div class="page-container">
+          <div class="page-header">
+            <h1>excelerate</h1>
           </div>
-        {% endblock navbar %}
-        {% block content %}
-        {% endblock content %}
-
-          <div class="mastfoot">
+          {% block navbar %}
+                  <nav>
+                    <ul class="">
+                      <li class=""><a href="{% url 'home' %}">Home</a></li>
+                      <!-- <li><a href="#">Features</a></li> -->
+                      <li class=""><a href="{% url 'about' %}">About</a></li>
+                    </ul>
+                  </nav>
+          {% endblock navbar %}
+          {% block content %}
+          {% endblock content %}
+<!--           <div class="mastfoot">
             <div class="inner">
               <p>Copyright &copy; 2015</p>
             </div>
           </div>
-
-        </div>
-
-      </div>
-
-    </div>
+ -->        </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
