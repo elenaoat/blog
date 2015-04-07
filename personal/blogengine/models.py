@@ -7,6 +7,7 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     pub_date = models.DateTimeField(default=timezone.now())
     teaser = models.TextField()
+    tag = models.CharField(max_length=200, default=u'personal-development')
     text = models.TextField()
     slug = models.SlugField()
 
