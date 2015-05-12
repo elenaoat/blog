@@ -9,8 +9,11 @@ def home(request):
     # import pdb; pdb.set_trace()
     if 'travel' in request.META['PATH_INFO']:
         last_5 = models.Post.objects.filter(tag='travel').order_by('-pub_date')[:5]
-    else:     
+    elif 'tech' in request.META['PATH_INFO']:     
+        last_5 = models.Post.objects.filter(tag='coding').order_by('-pub_date')[:5]
+    else:
         last_5 = models.Post.objects.filter(tag='personal-development').order_by('-pub_date')[:5]
+
     ctx = {'posts': last_5}
 
     return render(request, 'home.html', ctx)
