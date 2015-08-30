@@ -25,7 +25,7 @@ def about(request):
     return render(request, 'about.html')
 
 def add_post(request):
-    import pdb; pdb.set_trace()
+    # import pdb; pdb.set_trace()
     if request.method == 'POST':
         form = PostForm(request.POST)
         if form.is_valid():
