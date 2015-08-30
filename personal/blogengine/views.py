@@ -10,8 +10,10 @@ def home(request):
     # import pdb; pdb.set_trace()
     if 'travel' in request.META['PATH_INFO']:
         last_10 = models.Post.objects.filter(tag='travel').order_by('-pub_date')[:10]
-    elif 'tech' in request.META['PATH_INFO']:     
+    elif 'tech' in request.META['PATH_INFO']:
         last_10 = models.Post.objects.filter(tag='coding').order_by('-pub_date')[:10]
+    elif 'learning-languages' in request.META['PATH_INFO']:
+        last_10 = models.Post.objects.filter(tag='learning-languages').order_by('-pub_date')[:10]
     else:
         last_10 = models.Post.objects.filter(tag='personal-development').order_by('-pub_date')[:10]
 
