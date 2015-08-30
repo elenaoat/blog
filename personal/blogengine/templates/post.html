@@ -2,11 +2,11 @@
 {% load extras %}
 {% load disqus_tags %}
 {% block title %}
-    {{ post.title }}
+	{{ post.title }}
 {% endblock title %}
 {% block content %}
 	{% disqus_dev %}
-    <h2>{{ post.title }}</h2>
-    <article class="teaser post">{{ post.text|safe|linebreaks }}</article>
-    {% disqus_show_comments %}
+	<h2>{{ post.title }}</h2>
+	<article class="teaser post">{{ post.text|safe|linebreaks }}</article>
+	{% disqus_show_comments %}
 {% endblock content %}

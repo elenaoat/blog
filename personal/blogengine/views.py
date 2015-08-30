@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from . import models
+from .forms import PostForm
 import datetime
 from django.contrib.sitemaps import Sitemap
 
@@ -23,6 +24,20 @@ def about(request):
 
     return render(request, 'about.html')
 
+def add_post(request):
+    import pdb; pdb.set_trace()
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+            # ctx = {'post': post}
+            # template = 'post.html'
+    else:
+        post_form = PostForm()
+        ctx = {'post_form': post_form}
+        template = 'add.html'
+    return render(request, template, ctx)
 
 def view_post(request, post_slug):
     post = get_object_or_404(models.Post, slug=post_slug)

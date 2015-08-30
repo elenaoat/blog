@@ -39,11 +39,14 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'south',
     'disqus',
+    'crispy_forms',
     'django_extensions',
     'blogengine',
     'django.contrib.sites',
     'django.contrib.sitemaps',
 )
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 DISQUS_API_KEY = ''
 DISQUS_WEBSITE_SHORTNAME = ''
