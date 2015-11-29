@@ -38,7 +38,7 @@ body {
 
 .page-container {
   text-align: center;
-  width: 1080px;  
+  width: 1080px;
   margin: 0 auto;
 }
 div {
@@ -48,6 +48,10 @@ div {
 a, a:hover {
   color: #666666 !important;
   text-decoration: none;
+  /*border-bottom: 1px dotted;*/
+}
+
+a.dotted {
   border-bottom: 1px dotted;
 }
 

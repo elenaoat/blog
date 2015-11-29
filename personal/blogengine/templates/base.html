@@ -1,4 +1,4 @@
-
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -9,11 +9,11 @@
 		<meta name="author" content="">
 		<link rel="icon" href="../../favicon.ico">
 		<link href='http://fonts.googleapis.com/css?family=Anonymous+Pro' rel='stylesheet' type='text/css'>
-        <title>
-            {% block title %}
-            {% endblock title %}
-        </title>
-        
+		<title>
+			{% block title %}
+			{% endblock title %}
+		</title>
+
 		<!-- Bootstrap core CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 		{% load staticfiles %}
@@ -42,22 +42,40 @@
 
 	<body>
 		<div class="page-container">
-			<div class="page-header">
-				<h1>excelerate</h1>
+			<div class="page-header row">
+				<h1 class="col-md-8 col-md-offset-2">excelerate</h1>
+				<div class="col-md-1">
+				<a href="" {% if request.LANGUAGE_CODE == 'en' %}style="font-weight: bold;"{% endif %} data-value="{{ LANGUAGES.0.0 }}" class="lang_switch">EN /</a>
+				<a href="" {% if request.LANGUAGE_CODE == 'ru' %}style="font-weight: bold;"{% endif %} data-value="{{ LANGUAGES.1.0 }}" class="lang_switch">RU</a>
+				{% comment %}
+				<option value="{{ lang.0 }}">{{ lang.0 }}</option>
+				<form action="/i18n/setlang/" method="post">
+					{% csrf_token %}
+					<!-- <input name="next" type="hidden" value="/next/page/" /> -->
+					<select name="language">
+						{% for lang in LANGUAGES %}
+						<option value="{{ lang.0 }}">{{ lang.0 }}</option>
+						{% endfor %}
+					</select>
+					<input type="submit" value="Go" />
+				</form>
+				{% endcomment %}
+				</div>
 			</div>
 			{% block navbar %}
 			<nav>
 				<ul class="">
-					<li class=""><a href="{% url 'home' %}">Self-development</a></li>
+					<li class=""><a class="dotted" href="{% url 'home' %}">{% trans "Self-development" %}</a></li>
 					<!-- <li><a href="#">Features</a></li> -->
-					<li class=""><a href="{% url 'blog-travel' %}">Travel</a></li>
-					<li class=""><a href="{% url 'tech' %}">Tech</a></li>
-					<li class=""><a href="{% url 'learning-languages' %}">Learning Languages</a></li>
-					<li class=""><a href="{% url 'about' %}">About</a></li>
+					<li class=""><a class="dotted" href="{% url 'blog-travel' %}">{% trans "Travel" %}</a></li>
+					<li class=""><a class="dotted" href="{% url 'tech' %}">{% trans "Tech" %}</a></li>
+					<li class=""><a class="dotted" href="{% url 'learning-languages' %}">{% trans "Learning Languages" %}</a></li>
+					<li class=""><a class="dotted" href="{% url 'about' %}">{% trans "About" %}</a></li>
 				</ul>
 			</nav>
 			{% endblock navbar %}
 		</div>
+
 		<div class="container">
 			{% block content %}
 			{% endblock content %}
@@ -67,12 +85,28 @@
 						<p>Copyright &copy; 2015</p>
 					</div>
 				</div>
---> 
+-->
 
 		<!-- Bootstrap core JavaScript
 		================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script>
+			$(".lang_switch").on('click', function(e) {
+				var req = $.ajax({
+					url: "/i18n/setlang/",
+					type: "POST",
+					data: {
+						"language": $(e.target).data('value'),
+						"csrfmiddlewaretoken": "{{ csrf_token }}",
+					},
+				});
+				req.done(function() {
+					// $(e.target).css('font-weight', 'bold');
+					window.location.reload(true);
+				});
+			});
+		</script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 		<script src="{% static 'js/docs.min.js' %}"></script>
 		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
