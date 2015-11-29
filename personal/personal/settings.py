@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'blogengine',
     'django.contrib.sites',
     'django.contrib.sitemaps',
+    'modeltranslation'
 )
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
@@ -53,6 +54,7 @@ DISQUS_WEBSITE_SHORTNAME = ''
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -92,6 +94,13 @@ DATABASES = {
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+
+LANGUAGES = (
+  ('en', 'English'),
+  ('ru', 'Russian'),
+)
+
+PROJECT_DIR = os.path.dirname(__file__)
 
 TIME_ZONE = 'UTC'
 
