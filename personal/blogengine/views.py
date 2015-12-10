@@ -18,11 +18,11 @@ def home(request):
         last_10 = models.Post.objects.filter(tag='personal-development').order_by('-pub_date')[:10]
 
     ctx = {'posts': last_10}
-    try:
-        return render(request, 'home.html', ctx)
-    except Exception as e:
-        print e
-        import pdb; pdb.set_trace()
+    # try:
+    return render(request, 'home.html', ctx)
+    # except Exception as e:
+    #     print e
+    #     import pdb; pdb.set_trace()
 
 
 def about(request):

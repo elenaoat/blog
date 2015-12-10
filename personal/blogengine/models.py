@@ -49,7 +49,7 @@ class SlugMixin(models.Model):
 
 
 class Post(SlugMixin, models.Model):
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200, default="")
     pub_date = models.DateTimeField(default=datetime.now)
     teaser = models.TextField()
     tag = models.CharField(max_length=200, default=u'personal-development')
