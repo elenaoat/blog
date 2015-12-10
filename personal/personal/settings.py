@@ -118,7 +118,7 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = ''
-SECRET_KEY = ''
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "")
 STATIC_ROOT = ''
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
