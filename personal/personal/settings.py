@@ -47,8 +47,8 @@ INSTALLED_APPS = (
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
-DISQUS_API_KEY = ''
-DISQUS_WEBSITE_SHORTNAME = ''
+DISQUS_API_KEY = os.environ.get('DISQUS_API_KEY', '')
+DISQUS_WEBSITE_SHORTNAME = os.environ.get('DISQUS_WEBSITE_SHORTNAME', '')
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -117,14 +117,10 @@ USE_L10N = True
 
 USE_TZ = True
 
-STATIC_URL = ''
+STATIC_URL = '/static/'
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "")
 STATIC_ROOT = ''
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-try:
-    # import pdb; pdb.set_trace()
-    from personal.custom_settings import *
-except ImportError:
-    pass
+from personal.local_settings import *
