@@ -44,10 +44,12 @@
 		<div class="page-container">
 			<div class="page-header row">
 				<h1 class="col-md-8 col-md-offset-2">excelerate</h1>
-				<div class="col-md-1">
+				<div class="col-md-2 ">
+				<a href="https://www.facebook.com/groups/657515831055583/"><p class="mastermind">Join <b><i>Mastermind Nordics</i></b></p></a>
+				{% comment %}
 				<a href="" {% if request.LANGUAGE_CODE == 'en' %}style="font-weight: bold;"{% endif %} data-value="{{ LANGUAGES.0.0 }}" class="lang_switch">EN /</a>
 				<a href="" {% if request.LANGUAGE_CODE == 'ru' %}style="font-weight: bold;"{% endif %} data-value="{{ LANGUAGES.1.0 }}" class="lang_switch">RU</a>
-				{% comment %}
+				<!-- old stuff, not needed -->
 				<option value="{{ lang.0 }}">{{ lang.0 }}</option>
 				<form action="/i18n/setlang/" method="post">
 					{% csrf_token %}
