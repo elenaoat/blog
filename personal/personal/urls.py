@@ -15,6 +15,7 @@ urlpatterns = patterns(
     # url(r'^blog/', include('blog.urls')),
     url(r'^$', views.home, name='home'),
     url(r'^i18n/', include('django.conf.urls.i18n')),
+    url(r'^nordic-masterminds/$', views.mastermind, name="mastermind"),
     url(r'^about/$', views.about, name='about'),
     url(r'^travel/$', views.home, name='blog-travel'),
     url(r'^tech/$', views.home, name='tech'),

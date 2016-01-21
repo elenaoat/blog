@@ -47,6 +47,12 @@ def add_post(request):
         template = 'add.html'
     return render(request, template, ctx)
 
+
+def mastermind(request):
+    template = 'mastermind.html'
+    return render(request, template, {})
+
+
 def view_post(request, post_slug):
     post = get_object_or_404(models.Post, slug=post_slug)
     ctx = {'post': post}

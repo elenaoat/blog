@@ -55,8 +55,8 @@ a.dotted {
   border-bottom: 1px dotted;
 }
 
-h1 {
-  font-size: 64px;
+h1.site-header {
+  font-size: 64px !important;
   text-align: center;
 }
 
