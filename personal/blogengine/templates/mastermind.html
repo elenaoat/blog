@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load extras %}
+{% load extras staticfiles %}
 {% load disqus_tags %}
 
 {% block title %}
@@ -89,7 +89,7 @@
 			background-position: center center;
 			background-repeat: no-repeat;
 			background-size: auto auto;
-											-webkit-background-size: auto auto;
+			-webkit-background-size: auto auto;
 											-moz-background-size: auto auto;
 											-o-background-size: auto auto;
 
@@ -1639,12 +1639,8 @@
 			>
 
 			<div class="contents">
-			<img
-			src="//d2r8jqmejizzox.cloudfront.net/fd8a71a6/6423501a/1452877751-1788131-960x378x961x640x1x146-Nordic-MastermindsBG.png"
-			style="height: 100%; width: 100%; margin-top: ;"
-			alt=""
-			/>
-
+				<img src="{% static 'img/mastermind.png' %}" class="" style="height:100% ; width:100%;"
+				alt="" />
 			</div>
 			</div>
 
@@ -1655,7 +1651,7 @@
 
 			<div class="contents">
 			<img
-			src="//d2r8jqmejizzox.cloudfront.net/fd8a71a6/6423501a/1452877755-1788134-326x130-Nordic-Masterminds-l.png"
+			src="{% static 'img/tagline.png' %}"
 			style="height: 100%; width: 100%; margin-top: 0px;"
 			alt=""
 			/>
@@ -1676,7 +1672,7 @@
 
 			<div class="contents">
 			<img
-			src="//d2r8jqmejizzox.cloudfront.net/fd8a71a6/6423501a/1452877751-1788128-120x120-Nordic-Masterminds-l.png"
+			src="{% static 'img/logo-nm.png' %}"
 			style="height: 100%; width: 100%; margin-top: 0px;"
 			alt=""
 			/>
