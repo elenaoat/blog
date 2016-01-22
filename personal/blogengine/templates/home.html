@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
+	<article class="teaser post">
+		<a href="/nordic-masterminds"><h2>Nordic Masterminds</h2></a>
+		The concept of a "mastermind" has been known for quite some time - ever since Napoleon Hill defined it. Our group aims at being one which promotes accountability in front of the other groups members. This proved to be highly effective method in settings and achieving goals.
+		If you would like to read more about the group and how to join us, please head <a href="/nordic-masterminds"> here</a>.
+	</article>
+
     {% for post in posts %}
     	<article class="teaser">
 	        <a href="{% url 'view_post' post.slug %}" class="link"><h2>{{ post.title }}</h2></a>
